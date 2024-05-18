@@ -13,8 +13,7 @@ import java.util.List;
 public class GenreController {
     @Autowired
     GenreService genreService;
-    @GetMapping
-    @RequestMapping("/health-check")
+    @GetMapping("/health-check")
     public String helloworld(){
         return "OK";
     }

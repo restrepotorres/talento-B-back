@@ -12,36 +12,35 @@ import java.util.List;
 @RequestMapping("/pose")
 public class PoseController {
     @Autowired
-    PoseService poseService;
-    @GetMapping
-    @RequestMapping("/health-check")
+    PoseService service;
+    @GetMapping("/health-check")
     public String helloworld(){
         return "OK";
     }
 
-
+    @GetMapping("/getall")
+    public List<PoseEntity> getAll() {
+        return service.getAll();
+    }
     @GetMapping("/getbyid/{id}")
     public ResponseEntity<PoseEntity> getById(@PathVariable Integer id) {
-        return poseService.getPoseById(id)
+        return service.getById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
     @GetMapping("/getbyname")
     public List<PoseEntity> getByName(@RequestParam String posename) {
-        return poseService.getPoseByName(posename);
+        return service.getPoseByName(posename);
     }
 
-    @GetMapping("/getall")
-    public List<PoseEntity> getAllEmployees() {
-        return poseService.getAllPoses();
-        }
+
     @PostMapping("/save")
-    public PoseEntity createPose (@RequestBody PoseEntity poseEntity){
-        return poseService.savePose(poseEntity);
+    public PoseEntity create(@RequestBody PoseEntity entity){
+        return service.save(entity);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deletePose (@PathVariable Integer id){
-        poseService.deletePose(id);
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

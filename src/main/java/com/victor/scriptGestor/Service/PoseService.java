@@ -11,22 +11,22 @@ import java.util.Optional;
 @Service
 public class PoseService {
     @Autowired
-    private PoseRepository poseRepository;
+    private PoseRepository repository;
 
-    public List<PoseEntity> getAllPoses() {
-        return poseRepository.findAll();
+    public List<PoseEntity> getAll() {
+        return repository.findAll();
     }
-    public Optional<PoseEntity> getPoseById(Integer id) {
-        return poseRepository.findById(id);
+    public Optional<PoseEntity> getById(Integer id) {
+        return repository.findById(id);
     }
     public List<PoseEntity> getPoseByName (String name){
-        return poseRepository.findByposeName(name);
+        return repository.findByposeName(name);
     }
-    public PoseEntity savePose (PoseEntity poseEntity){
-        return poseRepository.save(poseEntity);
+    public PoseEntity save(PoseEntity entity){
+        return this.repository.save(entity);
     }
-    public void deletePose (int id){
-        poseRepository.deleteById(id);
+    public void delete(int id){
+        repository.deleteById(id);
     }
 
 

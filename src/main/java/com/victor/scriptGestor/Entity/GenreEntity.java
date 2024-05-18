@@ -16,7 +16,7 @@ public class GenreEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idgenre")
-    private String idgenre;
+    private int idgenre;
 
     @Column(name = "genrename")
     private String genreName;

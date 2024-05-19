@@ -32,6 +32,9 @@ public class DialogService {
     public List<DialogEntity> getByPositionId (int positionId){
         return repository.findByidPosition(positionId);
     }
-    //todo find by scriptid
+
+    public List<DialogEntity> getByScriptId (int scriptId){
+        return repository.findByidScript(scriptId);
+    }
 
 }

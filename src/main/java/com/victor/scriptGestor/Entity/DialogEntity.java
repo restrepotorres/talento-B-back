@@ -14,26 +14,27 @@ import lombok.Setter;
 @Table(name = "dialogline")
 public class DialogEntity {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iddialogline")
     private int idDialogLine;
 
     @Column(name = "text")
     private String text;
 
-    @Column (name = "idposition")
+    @Column(name = "idposition")
     private int idPosition;
+
+    @Column(name = "idscript")
+    private int idScript;
+
+    @Column(name = "actor")
+    private String actor;
 
     @ManyToOne
     @JoinColumn(name = "idposition", referencedColumnName = "idposition", insertable = false, updatable = false)
     private PositionEntity position;
 
-//todo find by scriptid
-
-//    @ManyToOne
-//    @JoinColumn(name = "idscript", referencedColumnName = "idscript")
-//    private ScriptEntity script;
-//
-//    @Column (name = "idscript", insertable = false, updatable = false)
-//    private int idScript;
+    @ManyToOne
+    @JoinColumn(name = "idscript", referencedColumnName = "idscript", insertable = false, updatable = false)
+    private ScriptEntity script;
 }

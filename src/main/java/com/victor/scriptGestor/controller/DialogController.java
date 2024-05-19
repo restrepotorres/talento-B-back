@@ -27,10 +27,14 @@ public class DialogController {
     }
 
     @GetMapping("/getbypositionid/{id}")
-    public List<DialogEntity> getByPoseId(@PathVariable Integer id) {
+    public List<DialogEntity> getByPositionId(@PathVariable Integer id) {
         return service.getByPositionId(id);
     }
 
+    @GetMapping("/getbyscriptid/{id}")
+    public List<DialogEntity> getByGenreId(@PathVariable Integer id) {
+        return service.getByScriptId(id);
+    }
     @PostMapping("/save")
     public DialogEntity create(@RequestBody DialogEntity entity){
         return service.save(entity);

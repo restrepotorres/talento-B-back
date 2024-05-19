@@ -3,7 +3,6 @@ package com.victor.scriptGestor.Service;
 import com.victor.scriptGestor.Entity.PositionEntity;
 import com.victor.scriptGestor.Repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +26,10 @@ public class PositionService {
     }
     public void delete(int id){
         repository.deleteById(id);
+    }
+
+    public List<PositionEntity> getByPoseid (int poseId){
+        return repository.findByidPose(poseId);
     }
 
 

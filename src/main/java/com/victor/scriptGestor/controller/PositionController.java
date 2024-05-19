@@ -26,6 +26,10 @@ public class PositionController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+    @GetMapping("/getbyposeid/{id}")
+    public List<PositionEntity> getByPoseId(@PathVariable Integer id) {
+        return service.getByPoseid(id);
+    }
 
     @PostMapping("/save")
     public PositionEntity create(@RequestBody PositionEntity entity){

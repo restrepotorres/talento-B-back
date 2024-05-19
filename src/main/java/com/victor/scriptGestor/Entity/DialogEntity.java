@@ -11,23 +11,22 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "dialogLine")
+@Table(name = "dialogline")
 public class DialogEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-
-    @Column(name = "iddialogLine")
+    @Column(name = "iddialogline")
     private int idDialogLine;
 
     @Column(name = "text")
     private String text;
 
-    @ManyToOne
-    @JoinColumn(name = "idposition", referencedColumnName = "idposition")
-    private PositionEntity position;
-
-    @Column (name = "idposition", insertable = false, updatable = false)
+    @Column (name = "idposition")
     private int idPosition;
+
+    @ManyToOne
+    @JoinColumn(name = "idposition", referencedColumnName = "idposition", insertable = false, updatable = false)
+    private PositionEntity position;
 
 //todo find by scriptid
 

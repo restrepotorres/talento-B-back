@@ -41,9 +41,4 @@ public class PositionController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-//    @GetMapping ("/findbypose/{poseid}")
-//    public ResponseEntity<PositionEntity> getByposeId (@PathVariable Integer poseid){
-//        return service.getByposeId(poseid);
-//    }
 }

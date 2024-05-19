@@ -29,8 +29,10 @@ public class PositionEntity {
     private int yRotation;
     @Column(name = "zrotation")
     private int zRotation;
-
     @ManyToOne
     @JoinColumn(name = "idpose", referencedColumnName = "idpose")
     private PoseEntity pose;
+
+    @Column (name = "idpose", insertable = false, updatable = false)
+    private int idPose;
 }

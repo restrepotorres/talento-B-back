@@ -30,6 +30,7 @@ public class PoseController {
     }
     @GetMapping("/getbyname")
     public List<PoseEntity> getByName(@RequestParam String posename) {
+
         return service.getPoseByName(posename);
     }
 

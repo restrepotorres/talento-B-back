@@ -1,8 +1,6 @@
 package com.victor.scriptGestor.controller;
 
-import com.victor.scriptGestor.Entity.PoseEntity;
 import com.victor.scriptGestor.Entity.PositionEntity;
-import com.victor.scriptGestor.Service.PoseService;
 import com.victor.scriptGestor.Service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

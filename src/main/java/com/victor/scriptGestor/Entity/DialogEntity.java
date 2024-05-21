@@ -21,20 +21,30 @@ public class DialogEntity {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "idposition")
-    private int idPosition;
 
     @Column(name = "idscript")
     private int idScript;
 
     @Column(name = "actor")
     private String actor;
-
-    @ManyToOne
-    @JoinColumn(name = "idposition", referencedColumnName = "idposition", insertable = false, updatable = false)
-    private PositionEntity position;
-
+    @Column (name = "x")
+    private int x;
+    @Column (name = "y")
+    private int y;
+    @Column (name = "z")
+    private int z;
+    @Column (name = "xR")
+    private int xR;
+    @Column (name = "yR")
+    private int yR;
+    @Column (name = "zR")
+    private int zR;
+    @Column (name = "idpose")
+    private int idPose;
     @ManyToOne
     @JoinColumn(name = "idscript", referencedColumnName = "idscript", insertable = false, updatable = false)
     private ScriptEntity script;
+    @ManyToOne
+    @JoinColumn(name = "idpose", referencedColumnName = "idpose", insertable = false, updatable = false)
+    private PoseEntity pose;
 }

@@ -26,11 +26,6 @@ public class DialogController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/getbypositionid/{id}")
-    public List<DialogEntity> getByPositionId(@PathVariable Integer id) {
-        return service.getByPositionId(id);
-    }
-
     @GetMapping("/getbyscriptid/{id}")
     public List<DialogEntity> getByGenreId(@PathVariable Integer id) {
         return service.getByScriptId(id);
@@ -44,5 +39,14 @@ public class DialogController {
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<DialogEntity> updateDialog(@PathVariable Integer id, @RequestBody DialogEntity dialogDetails) {
+        try {
+            DialogEntity updatedEmployee = service.updateDialog(id, dialogDetails);
+            return ResponseEntity.ok(updatedEmployee);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

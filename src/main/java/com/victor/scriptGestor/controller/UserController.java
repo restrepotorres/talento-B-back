@@ -1,7 +1,9 @@
 package com.victor.scriptGestor.controller;
 
-import com.victor.scriptGestor.Entity.PositionEntity;
-import com.victor.scriptGestor.Service.PositionService;
+import com.victor.scriptGestor.Entity.DialogEntity;
+import com.victor.scriptGestor.Entity.UserEntity;
+import com.victor.scriptGestor.Service.DialogService;
+import com.victor.scriptGestor.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,28 +11,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/position")
-public class PositionController {
+@RequestMapping("/user")
+public class UserController {
     @Autowired
-    PositionService service;
-
+    UserService service;
     @GetMapping("/getall")
-    public List<PositionEntity> getAll() {
+    public List<UserEntity> getall(){
         return service.getAll();
     }
+
     @GetMapping("/getbyid/{id}")
-    public ResponseEntity<PositionEntity> getById(@PathVariable Integer id) {
+    public ResponseEntity<UserEntity> getById(@PathVariable Integer id) {
         return service.getById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    @GetMapping("/getbyposeid/{id}")
-    public List<PositionEntity> getByPoseId(@PathVariable Integer id) {
-        return service.getByPoseid(id);
-    }
 
+    @GetMapping("/getbyscriptid/{email}")
+    public List<UserEntity> getByGenreId(@PathVariable String email) {
+        return service.getByEmail(email);
+    }
     @PostMapping("/save")
-    public PositionEntity create(@RequestBody PositionEntity entity){
+    public UserEntity create(@RequestBody UserEntity entity){
         return service.save(entity);
     }
 
@@ -39,4 +41,5 @@ public class PositionController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
 }

@@ -1,6 +1,5 @@
 package com.victor.scriptGestor.Service;
 
-import com.victor.scriptGestor.Entity.PositionEntity;
 import com.victor.scriptGestor.Entity.ScriptEntity;
 import com.victor.scriptGestor.Repository.ScriptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +30,8 @@ public class ScriptService {
     public List<ScriptEntity> getByGenreid (int genreId){
         return repository.findByidGenre(genreId);
     }
+    public List<ScriptEntity> getByName (String name){return repository.findByscriptNameContaining(name);}
+
+    public List<ScriptEntity> getByGenreName (String genreName){ return repository.findBygenre_genreNameContaining(genreName);}
 
 }

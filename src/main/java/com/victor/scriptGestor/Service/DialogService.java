@@ -1,7 +1,6 @@
 package com.victor.scriptGestor.Service;
 
 import com.victor.scriptGestor.Entity.DialogEntity;
-import com.victor.scriptGestor.Entity.PositionEntity;
 import com.victor.scriptGestor.Repository.DialogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +28,22 @@ public class DialogService {
         repository.deleteById(id);
     }
 
-    public List<DialogEntity> getByPositionId (int positionId){
-        return repository.findByidPosition(positionId);
-    }
 
     public List<DialogEntity> getByScriptId (int scriptId){
         return repository.findByidScript(scriptId);
+    }
+
+    public DialogEntity updateDialog(Integer idDialog, DialogEntity dialogDetails){
+        DialogEntity dialog = repository.findById(idDialog).orElseThrow(() -> new RuntimeException("Dialog not found"));
+        dialog.setActor(dialogDetails.getActor());
+        dialog.setIdPose(dialogDetails.getIdPose());
+        dialog.setX(dialogDetails.getX());
+        dialog.setXR(dialogDetails.getXR());
+        dialog.setY(dialogDetails.getY());
+        dialog.setYR(dialogDetails.getYR());
+        dialog.setZ(dialogDetails.getZ());
+        dialog.setZR(dialogDetails.getZR());
+        return repository.save(dialog);
     }
 
 }

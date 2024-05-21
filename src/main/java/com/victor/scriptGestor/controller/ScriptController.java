@@ -29,6 +29,16 @@ public class ScriptController {
         return service.getByGenreid(id);
     }
 
+    @GetMapping("/getbyname/{name}")
+    public List<ScriptEntity> getByScriptName(@PathVariable String name) {
+        return service.getByName(name);
+    }
+
+    @GetMapping("/getbygenrename/{name}")
+    public List<ScriptEntity> getByGenreName(@PathVariable String name) {
+        return service.getByGenreName(name);
+    }
+
     @PostMapping("/save")
     public ScriptEntity create(@RequestBody ScriptEntity entity){
         return service.save(entity);

@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.AllArgsConstructor;
 
 @Getter
 @Setter
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "genre")

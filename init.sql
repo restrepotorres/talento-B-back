@@ -107,8 +107,14 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 insert into scriptgestor.genre (genrename) values("comedy");
-insert into scriptgestor.genre (genrename) values("comedy");
-insert into scriptgestor.genre (genrename) values("comedy");
-insert into scriptgestor.pose (poseName) values("Sit");
+insert into scriptgestor.genre (genrename) values("anime");
+insert into scriptgestor.genre (genrename) values("drama");
+insert into scriptgestor.genre (genrename) values("animation");
+insert into scriptgestor.genre (genrename) values("terror");
+insert into scriptgestor.genre (genrename) values("thriller");
+
+insert into scriptgestor.pose (poseName) values("backwards");
+insert into scriptgestor.pose (poseName) values("standing on head");
+insert into scriptgestor.pose (poseName) values("sitting");
 insert into scriptgestor.pose (poseName) values("Standing");
 insert into scriptgestor.pose (poseName) values("levitating");

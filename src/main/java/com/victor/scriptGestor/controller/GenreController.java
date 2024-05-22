@@ -39,7 +39,7 @@ public class GenreController {
         return genreService.saveGenre(genreEntity);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deletePose (@PathVariable Integer id){
+    public ResponseEntity<Void> deleteGenre (@PathVariable Integer id){
         genreService.deleteGenre(id);
         return ResponseEntity.noContent().build();
     }

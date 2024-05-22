@@ -17,6 +17,7 @@ Run the following command to start the container
 ```bash
 docker-compose up --build
 ```
+Wait until Docker just downloaded and create the containers.
 
 ### Step 4
 Now you can access to the backend services.
@@ -25,4 +26,4 @@ The backend runs on port 8080, and the database on port 3306,
 so make sure you're not running anything on those ports.
 ### Step 5
 Now you can go to [restrepotorres/talento-B-front](https://github.com/RestrepoTorres/talento-B-front)
-and start the front docker to full test the app.
+and follow the instructions  there in order to start the frontend container to full test the app.

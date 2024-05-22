@@ -6,10 +6,10 @@ This is the Backend of the WebApp.
 * Docker installed and running on your machine
 
 ### Step 1
-Clone this repo
+Clone or download this repo
 
 ### Step 2
-Navigate to the clone repository and open a command line
+open a command line in the cloned repo root folder
 
 ### Step 3
 Run the following command to start the container
